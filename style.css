@@ -3,7 +3,7 @@
   --secondary-color: #636e72;
   --accent-color: #0984e3;
   --text-color: #f5f6fa;
-  --button-hover: #3a3a3a;
+  --button-hover: #0599b6;
   --operator-color: #00b894;
   --equals-color: #00cec9;
   --clear-color: #d63031;
@@ -21,15 +21,36 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+  background: var(--primary-color);
   color: var(--text-color);
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading-name {
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white
+}
+
+.brand-name {
+  text-align: right;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
 }
 
 .calculator {
   width: 320px;
   background-color: var(--primary-color);
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(1, 117, 149, 0.368);
   overflow: hidden;
   padding: 20px;
 }

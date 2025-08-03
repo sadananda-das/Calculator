@@ -10,13 +10,19 @@
 
 <body>
   <div class="calculator">
+    <div class="heading">
+      <div class="heading-name">Calculator</div>
+      <div class="brand-name">CASIO</div>
+    </div>
+
     <div class="display">
+
       <div class="previous-operand" id="previous-operand"></div>
       <div class="current-operand" id="current-operand">0</div>
     </div>
     <div class="buttons">
       <button class="clear" onclick="clearAll()">AC</button>
-      <button onclick="deleteLastChar()">DEL</button>
+      <button onclick="deleteLastChar()">🡨</button>
       <button class="operator" onclick="appendOperator('%')">%</button>
       <button class="operator" onclick="appendOperator('/')">/</button>
 
@@ -25,9 +31,11 @@
       <button onclick="appendNumber('9')">9</button>
       <button class="operator" onclick="appendOperator('*')">×</button>
 
-      <button onclick="appendNumber('4')">4</button>
-      <button onclick="appendNumber('5')">5</button>
+
+
       <button onclick="appendNumber('6')">6</button>
+      <button onclick="appendNumber('5')">5</button>
+      <button onclick="appendNumber('4')">4</button>
       <button class="operator" onclick="appendOperator('-')">-</button>
 
       <button onclick="appendNumber('1')">1</button>
