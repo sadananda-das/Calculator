@@ -44,7 +44,9 @@ const appendNumber = (num) => {
 const appendOperator = (op) => {
   if (currentValue === "0" && op !== "%") return;
   if (op === "%") {
-    currentValue = (parseFloat(currentValue) / 100).toString();
+    temp = parseFloat(currentValue) / 100;
+    history.push(`${currentValue}${op} = ${temp}`);
+    currentValue = temp.toString();
     updateDisplay();
     return;
   }
@@ -54,6 +56,11 @@ const appendOperator = (op) => {
   previousValue = `${currentValue} ${operaton}`;
   currentValue = "0";
   updateDisplay();
+
+  // const historyList = document.getElementById("history-list");
+  // historyList.innerHTML = history
+  //   .map((entry) => `<div>${entry}</div>`)
+  //   .join("");
 
   document.querySelector(".history-container").style.display = "none";
 };
