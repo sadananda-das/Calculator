@@ -6,6 +6,8 @@ let previousValue = "";
 let currentValue = "0";
 let resetScreen = false;
 
+let history = [];
+
 const updateDisplay = () => {
   previousOperandElement.innerText = previousValue;
   currentOperandElement.innerText = currentValue;
@@ -35,6 +37,8 @@ const appendNumber = (num) => {
   if (num === "." && currentValue.includes(".")) return;
   currentValue += num;
   updateDisplay();
+
+  document.querySelector(".history-container").style.display = "none";
 };
 
 const appendOperator = (op) => {
@@ -50,6 +54,8 @@ const appendOperator = (op) => {
   previousValue = `${currentValue} ${operaton}`;
   currentValue = "0";
   updateDisplay();
+
+  document.querySelector(".history-container").style.display = "none";
 };
 
 const calculate = () => {
@@ -75,11 +81,39 @@ const calculate = () => {
     default:
       return;
   }
+
+  document.querySelector(".history-container").style.display = "none";
+  history.push(`${previousValue} ${currentValue} = ${result}`);
+  const historyList = document.getElementById("history-list");
+  historyList.innerHTML = history
+    .map((entry) => `<div>${entry}</div>`)
+    .join("");
   currentValue = result.toString();
   operaton = undefined;
   previousValue = "";
   resetScreen = true;
   updateDisplay();
+};
+
+const toggleHistory = () => {
+  const historyContainer = document.querySelector(".history-container");
+  historyContainer.style.display =
+    historyContainer.style.display === "none" ? "block" : "none";
+  if (historyContainer.style.display === "block") {
+    const historyList = document.getElementById("history-list");
+    historyList.innerHTML = history
+      .map((entry) => `<div class="history-item">${entry}</div>`)
+      .join("");
+  }
+};
+const toggleHistoryBack = () => {
+  const historyContainer = document.querySelector(".history-container");
+  historyContainer.style.display = "none";
+};
+const clearHistory = () => {
+  history = [];
+  const historyList = document.getElementById("history-list");
+  historyList.innerHTML = "";
 };
 
 document.addEventListener("keydown", function (e) {
