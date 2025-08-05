@@ -45,4 +45,4 @@ calculator/
 
 ---
 
-Made with ❤️ by [Akash](https://github.com/your-github-username)
+Made with ❤️ by [Sadananda](https://github.com/sadananda-das/Calculator.git)
